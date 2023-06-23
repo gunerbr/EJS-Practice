@@ -10,7 +10,7 @@ app.get("/", (request, response) => {
   // response.send('Hi')
   // response.download('server.js')
   // response.json({ message: "Error" });
-  response.render('index')
+  response.render('index', {text:'World'})
 });
 
 app.listen(3000);

@@ -15,3 +15,22 @@ and then in our server.js:
 app.set('view engine', 'ejs')
 
 ```
+
+
+to output dynamic content in ejs:
+
+
+```ejs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello <%= 2+2 %>
+</body>
+</html>
+
+```
