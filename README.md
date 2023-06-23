@@ -69,3 +69,13 @@ app.listen(3000);
 
 
 ```
+
+---
+- In our routes/users.js file:
+
+`const router = express.Router();`
+
+
+- router is like a mini version of our app... router has methods like .get just like our app does in the server.js file.
+
+

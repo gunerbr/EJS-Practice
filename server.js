@@ -12,11 +12,8 @@ app.get("/", (request, response) => {
   response.render("index", { text: "World" });
 });
 
-app.get("users", (req, res) => {
-  res.send("User list");
-});
-app.get("users/new", (req, res) => {
-  res.send("New user form");
-});
+const userRouter = require('./routers/user')
+
+app.use('/users', userRouter)
 
 app.listen(3000);
