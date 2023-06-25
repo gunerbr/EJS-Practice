@@ -152,3 +152,5 @@ app.get("/", logger, logger, logger, (request, response) => {
   response.render("index", { text: "World" });
 });
 ```
+
+###### In order to access the body of a post request in a form we need to add `app.use(express.urlencoded({extended:true}))` to our server.js file.
