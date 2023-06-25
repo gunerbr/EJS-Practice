@@ -11,4 +11,13 @@ router.get("/new", (req, res) => {
   });
 
 
+  router.post('/',(req,res)=>{
+    res.send('Create User')
+  })
+
+
+
+  router.get('/:id',(req,res)=>{
+res.send(`Get user with ID: ${req.params.id}`)
+  })
   module.exports = router;

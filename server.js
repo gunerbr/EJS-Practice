@@ -12,7 +12,7 @@ app.get("/", (request, response) => {
   response.render("index", { text: "World" });
 });
 
-const userRouter = require('./routers/user')
+const userRouter = require('./routes/users')
 
 app.use('/users', userRouter)
 
