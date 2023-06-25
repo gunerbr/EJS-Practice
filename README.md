@@ -2,7 +2,6 @@
 
 [Repo](https://github.com/gunerbr/EJS-Practice)
 
-
 **EJS** is a view engine.
 
 - by default your renderable html is stored in a folder in the root directory named `views`
@@ -74,13 +73,12 @@ app.listen(3000);
 ```
 
 ---
+
 - In our routes/users.js file:
 
 `const router = express.Router();`
 
-
 - router is like a mini version of our app... router has methods like .get just like our app does in the server.js file.
-
 
 **Router.route** allows us to chain togther different http methods for the same path... _i.e.)_
 
@@ -94,24 +92,22 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   res.send(`Delete user with ID: ${req.params.id}`);
 });
-
-
 ```
-
 
 > could be written as:
 
-
 ```js
-router.route('/:id').get((req, res) => {
+router
+  .route("/:id")
+  .get((req, res) => {
     res.send(`Get user with ID: ${req.params.id}`);
-  }).put((req, res) => {
-    res.send(`Update user with ID: ${req.params.id}`);
-  }).delete((req, res) => {
-    res.send(`Delete user with ID: ${req.params.id}`);
   })
-
+  .put((req, res) => {
+    res.send(`Update user with ID: ${req.params.id}`);
+  })
+  .delete((req, res) => {
+    res.send(`Delete user with ID: ${req.params.id}`);
+  });
 ```
-
 
 **router.param('id')** _runs whenever a route that has an id parameter_
