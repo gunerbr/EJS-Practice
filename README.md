@@ -112,21 +112,43 @@ router
 
 **router.param('id')** _runs whenever a route that has an id parameter_
 
-
 ```js
 const users = [{ name: "Bryan" }, { name: "Ellie" }];
 router.param("id", (req, res, next, id) => {
   req.user = users[id];
   next();
 });
-
 ```
 
 > this router.param() is essentially a middleware that saves us from having to write a lot of repetative code in each http verb method for a given route.
 
+**Middleware** _is code that runs between the start and end of the request_
 
-**Middleware**  _is code that runs between the start and end of the request_
 > every middleware takes a `request` , `response`, `next` parameters.
 
 - we generally don't use a next when we are doing .get or .post.
 - you generally only see next when you are creating middleware.
+- if you have middleware that you want to run on every route... page... put it at the top of your file so that it gets run before the other code.
+
+###### You can add middleware to routes as follows:
+
+```js
+app.get("/", logger, (request, response) => {
+  console.log("here");
+  response.render("index", { text: "World" });
+});
+
+function logger(req, res, next) {
+  console.log(req.originalUrl);
+  next();
+}
+```
+
+> you could also add as many middlewares as you want...they will get called in order from left to right...
+
+```js
+app.get("/", logger, logger, logger, (request, response) => {
+  console.log("here");
+  response.render("index", { text: "World" });
+});
+```
