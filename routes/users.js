@@ -16,6 +16,7 @@ router.post("/", (req, res) => {
 router
   .route("/:id")
   .get((req, res) => {
+    console.log(req.user);
     res.send(`Get user with ID: ${req.params.id}`);
   })
   .put((req, res) => {
@@ -24,9 +25,9 @@ router
   .delete((req, res) => {
     res.send(`Delete user with ID: ${req.params.id}`);
   });
-
+const users = [{ name: "Bryan" }, { name: "Ellie" }];
 router.param("id", (req, res, next, id) => {
-  console.log(id);
+  req.user = users[id];
   next();
 });
 

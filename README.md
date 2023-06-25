@@ -111,3 +111,22 @@ router
 ```
 
 **router.param('id')** _runs whenever a route that has an id parameter_
+
+
+```js
+const users = [{ name: "Bryan" }, { name: "Ellie" }];
+router.param("id", (req, res, next, id) => {
+  req.user = users[id];
+  next();
+});
+
+```
+
+> this router.param() is essentially a middleware that saves us from having to write a lot of repetative code in each http verb method for a given route.
+
+
+**Middleware**  _is code that runs between the start and end of the request_
+> every middleware takes a `request` , `response`, `next` parameters.
+
+- we generally don't use a next when we are doing .get or .post.
+- you generally only see next when you are creating middleware.
